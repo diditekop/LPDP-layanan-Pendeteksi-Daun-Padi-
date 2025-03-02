@@ -4,4 +4,6 @@ keras
 numpy
 pandas
 opencv-python-headless
-Pillow
+pillow
+gdown
+pip==23.0
