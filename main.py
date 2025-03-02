@@ -6,7 +6,7 @@ import os
 from PIL import Image
 
 url = "https://drive.google.com/file/d/1vYT1Y5aal597A-bVUw3uuCKw2mGxBa8-/view?usp=drive_link"
-output = "model.h5"
+output = "model.keras"
 gdown.download(url, output, quiet=False)
 
 if not os.path.exists(output):
