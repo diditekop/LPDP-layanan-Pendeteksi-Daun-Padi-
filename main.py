@@ -4,7 +4,7 @@ import numpy as np
 from tensorflow.keras.models import load_model
 from PIL import Image
 
-pip install --upgrade pip
+pip==23.0
 
 import gdown
 
