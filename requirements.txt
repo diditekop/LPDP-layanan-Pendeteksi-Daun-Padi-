@@ -3,6 +3,5 @@ tensorflow
 keras
 numpy
 pandas
-opencv-python
 opencv-python-headless
-pillow
+Pillow
