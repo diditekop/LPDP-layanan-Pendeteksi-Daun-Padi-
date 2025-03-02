@@ -5,7 +5,7 @@ from tensorflow.keras.models import load_model
 import os
 from PIL import Image
 
-url = "https://drive.google.com/file/d/1vYT1Y5aal597A-bVUw3uuCKw2mGxBa8-/view?usp=drive_link"
+url = "https://drive.google.com/file/d/15bL1yeTFfvlJC-TOu_g5oDoiLsN5g64i/view?usp=drive_link"
 output = "model.keras"
 gdown.download(url, output, quiet=False)
 
