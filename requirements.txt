@@ -6,4 +6,5 @@ pandas
 opencv-python-headless
 pillow
 gdown
+os
 pip==23.0
