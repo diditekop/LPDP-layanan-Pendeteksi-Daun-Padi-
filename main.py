@@ -4,6 +4,15 @@ import numpy as np
 from tensorflow.keras.models import load_model
 from PIL import Image
 
+pip install --upgrade pip
+
+import gdown
+
+url = "https://drive.google.com/file/d/1vYT1Y5aal597A-bVUw3uuCKw2mGxBa8-/view?usp=drive_link"
+output = "model.h5"
+gdown.download(url, output, quiet=False)
+
+
 # Fungsi untuk memuat model dan melakukan prediksi
 def load_and_predict(image_path):
     IMAGE_SIZE = (224, 224)
