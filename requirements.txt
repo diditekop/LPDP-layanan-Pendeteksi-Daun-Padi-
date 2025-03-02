@@ -6,6 +6,4 @@ gdown
 numpy
 opencv-python-headless
 pillow
-tensorflow==2.9
-keras==2.9
 h5py
