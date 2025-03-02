@@ -2,12 +2,21 @@ import streamlit as st
 import numpy as np
 import gdown
 from tensorflow.keras.models import load_model
+import os
 from PIL import Image
 
 url = "https://drive.google.com/file/d/1vYT1Y5aal597A-bVUw3uuCKw2mGxBa8-/view?usp=drive_link"
 output = "model.h5"
 gdown.download(url, output, quiet=False)
 
+if not os.path.exists(output):
+    gdown.download(url, output, quiet=False)
+
+# Cek apakah model berhasil diunduh
+if os.path.exists(output):
+    model = load_model(output)
+else:
+    raise FileNotFoundError("Model .h5 tidak ditemukan. Periksa link Google Drive!")
 
 def load_and_predict(image):
     IMAGE_SIZE = (224, 224)
