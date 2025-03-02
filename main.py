@@ -10,14 +10,18 @@ output = "model.h5"
 gdown.download(url, output, quiet=False)
 
 if not os.path.exists(output):
+    print("📥 Mengunduh model dari Google Drive...")
     gdown.download(url, output, quiet=False)
 
 # Cek apakah model berhasil diunduh
 if os.path.exists(output):
-    model = load_model(output)
+    print("✅ Model berhasil diunduh.")
 else:
-    raise FileNotFoundError("Model .h5 tidak ditemukan. Periksa link Google Drive!")
+    raise FileNotFoundError("❌ Model tidak ditemukan! Periksa URL atau akses file Google Drive.")
 
+# Load model setelah dipastikan ada
+from tensorflow.keras.models import load_model
+model = load_model(output)
 def load_and_predict(image):
     IMAGE_SIZE = (224, 224)
 
