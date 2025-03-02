@@ -1,43 +1,33 @@
 import streamlit as st
-import cv2
 import numpy as np
+import gdown
 from tensorflow.keras.models import load_model
 from PIL import Image
-
-pip==23.0
-
-import gdown
 
 url = "https://drive.google.com/file/d/1vYT1Y5aal597A-bVUw3uuCKw2mGxBa8-/view?usp=drive_link"
 output = "model.h5"
 gdown.download(url, output, quiet=False)
 
 
-# Fungsi untuk memuat model dan melakukan prediksi
-def load_and_predict(image_path):
+def load_and_predict(image):
     IMAGE_SIZE = (224, 224)
-    
-    # Membaca gambar
-    img = cv2.imread(image_path)
-    img = cv2.resize(img, IMAGE_SIZE)  # Resize gambar sesuai ukuran input model
-    img = img.astype('float32') / 255.0  # Normalisasi
-    
-    # Menambah dimensi batch
-    img = np.expand_dims(img, axis=0)  # Menambahkan dimensi batch (1,)
-    
-    # Memuat model yang sudah dilatih
-    model = load_model('model_penyakit_padi.h5')
-    
-    # Melakukan prediksi
+
+    # Buka gambar dengan PIL, lalu konversi ke NumPy array
+    img = Image.open(image).convert("RGB")
+    img = img.resize(IMAGE_SIZE)
+    img = np.array(img).astype('float32') / 255.0  # Normalisasi
+
+    # Tambah dimensi batch
+    img = np.expand_dims(img, axis=0)
+
+    # Load model
+    model = load_model("model.h5")
+
+    # Prediksi
     prediction = model.predict(img)
-    
-    # Menampilkan kelas dengan probabilitas tertinggi
     predicted_class = np.argmax(prediction)
-    
-    # Definisikan label untuk kelas
-    classes = ['Tungro', 'Blast', 'Blight']
-    
-    # Kembalikan kelas yang diprediksi dan probabilitasnya
+
+    classes = ["Tungro", "Blast", "Blight"]
     return classes[predicted_class], prediction[0][predicted_class]
 
 st.markdown("""
