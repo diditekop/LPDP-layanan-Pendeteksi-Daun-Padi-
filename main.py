@@ -34,7 +34,7 @@ def load_and_predict(image):
     img = np.expand_dims(img, axis=0)
 
     # Load model
-    model = load_model("model.h5")
+    model = load_model("model.keras")
 
     # Prediksi
     prediction = model.predict(img)
