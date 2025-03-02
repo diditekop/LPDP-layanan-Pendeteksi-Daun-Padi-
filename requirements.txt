@@ -1,5 +1,8 @@
 streamlit
-cv2
+tensorflow
+keras
 numpy
-tensorflow.keras.models 
-PIL
+pandas
+opencv-python
+opencv-python-headless
+pillow
