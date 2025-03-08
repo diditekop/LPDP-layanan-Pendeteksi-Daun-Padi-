@@ -212,7 +212,7 @@ st.markdown("""
     <footer style="text-align: center; font-size: 14px;">
         Dibuat oleh [Didit-Siti-Chrisma] - Rice Crop Disease Detection
             <p>Untuk informasi lebih lanjut atau konsultasi, silakan hubungi kami:</p>
-        <a href="https://wa.me/+6281299336645" class="button" ; font-weight: bold;" target="_blank">Chat via WhatsApp</a>
+        <a href="https://wa.me/+621234567" class="button" ; font-weight: bold;" target="_blank">Chat via WhatsApp</a>
         <br>
         <a href="https://www.pupuk-indonesia.com/product/petani" class="button" ; font-weight: bold;" target="_blank">Kunjungi Website Kami</a>
     </footer>
